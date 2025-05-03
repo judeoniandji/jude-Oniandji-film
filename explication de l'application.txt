@@ -1,0 +1,175 @@
+
+
+# Projet FilmVueJude - Gestionnaire de Collection de Films et Séries
+
+## Présentation du Projet
+
+**FilmVueJude** est une application web développée avec Flask, permettant aux utilisateurs de gérer leur collection personnelle de films et séries. Cette application offre une interface intuitive pour ajouter, modifier, supprimer et consulter des médias, ainsi que des fonctionnalités avancées de recherche, de filtrage, de statistiques et d’exportation de données.
+
+## Objectifs Pédagogiques
+
+Ce projet vise à mettre en pratique les compétences suivantes :
+
+* Développement d’une application web avec Flask
+* Utilisation de SQLAlchemy pour la gestion de la base de données
+* Implémentation d’un système d’authentification
+* Création d’interfaces utilisateur avec Jinja2 et Tailwind CSS
+* Gestion des relations entre entités (many-to-many)
+* Création de fonctionnalités de recherche et de filtrage
+* Génération de statistiques et visualisation de données
+* Exportation de données dans différents formats
+
+## Fonctionnalités Requises
+
+### 1. Authentification des Utilisateurs
+
+* Système de connexion par email et mot de passe
+* Compte par défaut pour les tests : `sosos@gmail.com` / `koko`
+* Protection des routes nécessitant une authentification
+
+### 2. Gestion des Médias
+
+* Ajout de films et séries avec titre, type, genre, note et commentaire
+* Modification et suppression des médias
+* Marquage des coups de cœur
+* Enregistrement automatique de la date de visionnage
+
+### 3. Interface Utilisateur
+
+* Design responsive avec Tailwind CSS
+* Navigation intuitive entre les différentes sections
+* Affichage clair des informations des médias
+
+### 4. Recherche et Filtrage
+
+* Recherche par titre
+* Filtrage par genre
+* Filtrage par type (film/série)
+* Filtrage par note minimale
+* Filtrage par tag
+
+### 5. Système de Tags
+
+* Ajout de tags personnalisés aux médias
+* Gestion des tags (ajout/suppression)
+* Association de plusieurs tags à un média
+
+### 6. Statistiques
+
+* Nombre total de médias, films, séries et coups de cœur
+* Note moyenne de la collection
+* Répartition des médias par genre
+* Visualisation graphique des données
+
+### 7. Historique de Visionnage
+
+* Affichage chronologique des médias visionnés
+* Organisation par mois/année
+
+### 8. Exportation de Données
+
+* Export au format CSV
+* Export au format TXT
+
+## Architecture Technique
+
+### Structure du Projet
+
+```
+filmvuejude/
+
+├── app/
+│   ├── __init__.py          # Initialisation de l'application Flask
+│   ├── models.py            # Modèles de données SQLAlchemy
+│   ├── routes.py            # Routes et contrôleurs de l'application
+│   ├── static/              # Fichiers statiques (CSS, JS, images)
+│   └── templates/           # Templates Jinja2
+│       ├── auth/            # Templates d'authentification
+│       ├── media/           # Templates de gestion des médias
+│       └── tags/            # Templates de gestion des tags
+│
+├── config.py                # Configuration de l'application
+├── run.py                   # Point d'entrée de l'application
+└── README.md                # Documentation du projet
+```
+
+### Technologies Utilisées
+
+* **Backend** : Flask, SQLAlchemy, Flask-Login
+* **Base de données** : SQLite
+* **Frontend** : HTML, Jinja2, Tailwind CSS
+* **Autres** : Flask-Migrate, python-dotenv
+
+## Modèles de Données
+
+### Utilisateur
+
+* id (clé primaire)
+* nom\_utilisateur
+* email
+* mot\_de\_passe\_hash
+
+### Media
+
+* id (clé primaire)
+* titre
+* type (film ou série)
+* genre
+* date\_visionnage
+* note
+* commentaire
+* coup\_de\_coeur
+* utilisateur\_id (clé étrangère)
+* tags (relation many-to-many avec Tag)
+
+### Tag
+
+* id (clé primaire)
+* nom
+* medias (relation many-to-many avec Media)
+
+## Informations d'Accès
+
+Pour tester l'application, vous pouvez utiliser les identifiants suivants :
+
+* **Email** : [sosos@gmail.com](mailto:sosos@gmail.com)
+* **Mot de passe** : `koko`
+
+Si ce compte n'existe pas encore dans la base de données, il sera automatiquement créé lors de la première connexion. Sinon, vous pouvez tout simplement vous inscrire.
+
+## Exigences Techniques
+
+### Prérequis
+
+* Python 3.8 ou supérieur
+* pip (gestionnaire de paquets Python)
+
+### Installation
+
+1. Cloner le dépôt du projet
+2. Installer les dépendances : `pip install -r requirements.txt`
+3. Lancer l'application : `python run.py`
+4. Accéder à l’application via un navigateur à l’adresse : `http://localhost:5000`
+
+## Documentation (10 %)
+
+La documentation est claire, complète et bien structurée.
+
+## Livraison
+
+Le projet doit être rendu sous forme d’un dépôt Git contenant :
+
+* Le code source complet de l’application
+* Un fichier détaillant l’installation et l’utilisation de l’application
+* Les fichiers de configuration nécessaires
+* Une base de données SQLite pré-remplie avec des données de test
+
+## Conclusion
+
+Ce projet m’a permis de mettre en pratique de nombreuses compétences en développement web avec Flask. L'application **FilmVueJude** offre une solution complète pour la gestion d'une collection personnelle de films et séries, avec des fonctionnalités avancées de recherche, de filtrage, de statistiques et d'exportation de données.
+
+Vous vous direz sûrement que c’est l’IA qui l’a fait. Eh bien non ! J’ai mis à contribution mes idées, et parfois, je me suis fait aider par une IA. C’est un projet que j’ai commencé parce que je n’arrivais pas à maîtriser les films et séries que j’avais déjà regardés. Cette note me permettra de combler un gros vide en **Oracle** et ainsi pouvoir **valider ma graduation**.
+
+---
+
+
